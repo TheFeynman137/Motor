@@ -20,8 +20,8 @@ GPIO.output(4,GPIO.HIGH)
 
 
 #HTTP Setup
-API_ENDPOINT = 'https://feynmaniot.com/post-esp-data333333.php'
-API_KEY = "tPmAT5Ab3j7F9"
+API_ENDPOINT = EndPoint
+API_KEY = Key
 
 
 #ADC setup
