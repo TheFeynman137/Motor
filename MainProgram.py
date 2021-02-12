@@ -28,7 +28,7 @@ with open('secret.key', 'rb') as my_private_key:
 f = Fernet(key)
 API_PAGE = f.decrypt(API_PAGE_ENCRYPT)
 API_PAGE = API_PAGE.decode()
-API_ENDPOINT = 
+API_ENDPOINT = 'https://' + API_PAGE
 
 API_KEY = f.decrypt(API_KEY_ENCRYPT.ciphertext)
 API_KEY = API_KEY.decode()
