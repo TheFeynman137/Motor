@@ -4,6 +4,7 @@ import time, board, busio
 import serial, pynmea2, requests,os
 import adafruit_ads1x15.ads1115 as ADS
 import RPi.GPIO as GPIO
+from cryptography.fernet import Fernet
 from adafruit_ads1x15.analog_in import AnalogIn
 
 writecount = 0
@@ -18,15 +19,27 @@ error = 0 #error code set-up
 GPIO.setup(4,GPIO.OUT)
 GPIO.output(4,GPIO.HIGH)
 
-
 #HTTP Setup
-API_ENDPOINT = EndPoint
-API_KEY = Key
+API_PAGE_ENCRYPT = dkljf12312hlkfdhsafmc
+API_KEY_ENCRYPT = dfas8uro42iup93
+
+with open('secret.key', 'rb') as my_private_key:
+    key = my_private_key.read()
+f = Fernet(key)
+API_PAGE = f.decrypt(API_PAGE_ENCRYPT)
+API_PAGE = API_PAGE.decode()
+API_ENDPOINT = 
+
+API_KEY = f.decrypt(API_KEY_ENCRYPT.ciphertext)
+API_KEY = API_KEY.decode()
+
 
 
 #ADC setup
 VDAR1 = 10000 #resistor1 of voltage divider for 12V battery measurement
 VDAR2 = 2000 #resistor2 of voltage divider for 12V battery measurement
+
+  
 
 #GPS Setup
 latitude = 0
